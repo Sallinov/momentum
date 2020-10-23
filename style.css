@@ -1,0 +1,62 @@
+* {
+	margin: 0;
+	padding: 0;
+	outline: none;
+	text-decoration: none;
+	font-family: 'Poiret One', cursive;
+}
+body,
+.background-img {
+	width: 100vw;
+	height: 100vh;
+}
+.background-img {
+	background-size: cover;
+	position: absolute;
+	left: 0;
+	top: 0;
+    z-index: -1;
+    filter: blur(7px);
+    -webkit-filter: blur(7px);
+}
+body,
+.wraper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	color: #fff;
+    text-shadow: 0 0 15px black;
+}
+.wraper__clock { margin: 25px 0; }
+.wraper__day,
+.wraper__welcome-frases { 
+	font-weight: bold; 
+}
+@media (min-width: 750px) {
+	.wraper__clock {
+		font-size: 125px;
+	}
+	.wraper__day,
+	.wraper__welcome-frases {
+		font-size: 45px;
+	}
+}
+@media (min-width: 1024px) {
+	.wraper__clock {
+		font-size: 150px;
+	}
+	.wraper__day,
+	.wraper__welcome-frases {
+		font-size: 55px;
+	}
+}
+@media (min-width: 1280px) {
+	.wraper__clock {
+		font-size: 175px;
+	}
+	.wraper__day,
+	.wraper__welcome-frases {
+		font-size: 80px;
+	}
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<title>Momentum</title>
+	<link rel="stylesheet" href="style.css">
+	<link href="https://fonts.googleapis.com/css2?family=Poiret+One&display=swap" rel="stylesheet">
+</head>
+<body>
+	<div class="background-img"></div>
+	<section class="wraper">
+		<div class="wraper__day"></div>
+		<div class="wraper__clock"></div>
+		<div class="wraper__welcome-frases"></div>
+		<div class="wraper__today-task"></div>
+	</section>
+	<script>
+		let message;
+		const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+		const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+		let clock = document.querySelector('.wraper__clock');
+		let frases = document.querySelector('.wraper__welcome-frases');
+		let day = document.querySelector('.wraper__day');
+		wraperUpdate();
+		setInterval(() => wraperUpdate(), 1000);
+		function wraperUpdate(date = new Date()) {
+			day.innerText = days[date.getDay()] + ', ' + date.getDay().toString().padStart(2,0) + ' ' + month[date.getMonth()];
+			clock.innerText = date.getHours().toString().padStart(2,0) + ":" +
+				date.getMinutes().toString().padStart(2,0) + ":" +
+				date.getSeconds().toString().padStart(2,0);
+			if (date.getHours() <= 6) {
+		  		message = 'night';
+			} else if (date.getHours() <= 12) {
+		  		message = 'morning';
+			} else if (date.getHours() <= 18) {
+		  		message = 'day';
+			} else {
+		  		message = 'evening';
+			}
+			frases.innerText = 'Good ' + message;
+		}
+		backgroundCganger(message);
+		function backgroundCganger(message) {
+			document.querySelector('.background-img').style.backgroundImage = "url('assets/" +
+			message + "/" + Math.round(1 + Math.random() * (20 - 1)).toString().padStart(2, 0) +
+			".jpg";
+		}
+	</script>
+</body>
+</html>
